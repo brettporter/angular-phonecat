@@ -11,8 +11,9 @@ var phonecatApp = angular.module('phonecatApp', [
   'phonecatServices'
 ]);
 
-phonecatApp.config(['$routeProvider',
-  function($routeProvider) {
+phonecatApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
     $routeProvider.
       when('/phones', {
         templateUrl: 'partials/phone-list.html',
@@ -22,7 +23,8 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/phone-detail.html',
         controller: 'PhoneDetailCtrl'
       }).
-      otherwise({
-        redirectTo: '/phones'
+      otherwise( {
+        templateUrl: 'partials/phone-list.html',
+        controller: 'PhoneListCtrl'
       });
   }]);

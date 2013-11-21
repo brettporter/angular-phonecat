@@ -46,6 +46,7 @@ HttpServer.prototype.start = function(port) {
 
 HttpServer.prototype.parseUrl_ = function(urlString) {
   var parsed = url.parse(urlString);
+  parsed.pathname = parsed.pathname.replace(/;.*/, '');
   parsed.pathname = url.resolve('/', parsed.pathname);
   return url.parse(url.format(parsed), true);
 };
