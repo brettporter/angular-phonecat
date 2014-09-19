@@ -5,6 +5,11 @@
   "description": "A tutorial application for AngularJS",
   "repository": "https://github.com/angular/angular-phonecat",
   "license": "MIT",
+  "dependencies" : {
+    "express": "4.x",
+    "body-parser": "1.x",
+    "stripe": "2.x"
+  },
   "devDependencies": {
     "karma": "^0.12.16",
     "karma-chrome-launcher": "^0.1.4",
@@ -19,7 +24,7 @@
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "http-server -a 0.0.0.0 -p 8000",
+    "start": "node api/server.js 8000",
 
     "pretest": "npm install",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
